@@ -35,6 +35,7 @@ void shell_loop(t_cmd *config)
 
 	while (1)
 	{
+		sig_handling_set(1);
 		if (status == 2)
 			config->exit_code = "0";
 		else if (status == 1)

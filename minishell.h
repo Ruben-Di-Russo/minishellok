@@ -11,7 +11,8 @@
 #include <string.h>
 #include <sys/types.h>
 #include <fcntl.h>
-
+#include <termios.h>
+#include <signal.h>
 #define SPACE_DELM ' '
 #define PIPE_DELM '|'
 #define DOUBLE_RIGHT_REDIRECTION '>>'
@@ -125,5 +126,6 @@ char *find_envp(t_cmd *config, char *tmp);
 int	ft_isprint(int c);
 int	check_line(char *line);
 int	ft_atoi(const char *str);
-
+void	sighand(int sig);
+void	sig_handling_set(int signals);
 #endif
