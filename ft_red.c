@@ -6,7 +6,7 @@
 /*   By: rdi-russ <rdi-russ@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:29:25 by rdi-russ          #+#    #+#             */
-/*   Updated: 2023/01/16 15:33:03 by rdi-russ         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:56:21 by rdi-russ         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,18 @@ int	single_left(t_cmd *config)
 int	double_left(t_cmd *config)
 {
 	int		fd;
-	int		st;
 	char	*delimiter;
 	char	*lines;
 
-	st = 1;
+	config->st = 1;
 	delimiter = config->cmd_line[config->num_cmd - 1];
 	fd = open(".tmp", O_CREAT | O_TRUNC | O_WRONLY, 0777);
-	while (st)
+	while (config->st)
 	{
 		lines = readline(">");
 		if (ft_strcmp(lines, delimiter) == 0)
 		{
-			st = 0;
+			config->st = 0;
 			break ;
 		}
 		ft_putstr_fd(lines, fd);

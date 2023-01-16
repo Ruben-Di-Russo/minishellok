@@ -6,7 +6,7 @@
 /*   By: rdi-russ <rdi-russ@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:34:09 by rdi-russ          #+#    #+#             */
-/*   Updated: 2023/01/16 17:06:13 by rdi-russ         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:54:49 by rdi-russ         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,17 +89,17 @@ int	len_num_builtins(char **builtin_str)
 	return (i);
 }
 
-int	builtin_func(char *cmd, char **args,t_cmd *config)
+int	builtin_func(char *cmd, char **args, t_cmd *config)
 {
-  if (ft_strcmp(cmd, "cd") == 0)
-  {
-	return (cmd_cd(args));
-  }
-  else if (ft_strcmp(cmd, "export") == 0)
-	return (ft_export(args, config));
-  else if (ft_strcmp(cmd, "exit") == 0)
-	return (cmd_exit(args, config));
-  else if (ft_strcmp(cmd, "unset") == 0)
-	return (cmd_unset(args, config));    
-  return (0);
+	if (ft_strcmp(cmd, "cd") == 0)
+	{
+		return (cmd_cd(args));
+	}
+	else if (ft_strcmp(cmd, "export") == 0)
+		return (ft_export(args, config));
+	else if (ft_strcmp(cmd, "exit") == 0)
+		return (cmd_exit(args, config));
+	else if (ft_strcmp(cmd, "unset") == 0)
+		return (cmd_unset(args, config));
+	return (0);
 }

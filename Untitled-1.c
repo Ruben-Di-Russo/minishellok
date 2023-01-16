@@ -1,0 +1,1 @@
+gcc mini.c ft* -lreadline -L /Users/rdi-russ/homebrew/Cellar/readline/8.2.1/lib -I /Users/rdi-russ/homebrew/Cellar/readline/8.2.1/include

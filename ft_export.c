@@ -6,7 +6,7 @@
 /*   By: rdi-russ <rdi-russ@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:17:44 by rdi-russ          #+#    #+#             */
-/*   Updated: 2023/01/16 17:01:43 by rdi-russ         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:55:09 by rdi-russ         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ int	ft_export(char **args, t_cmd *config)
 	char	**tmp;
 	int		status;
 	int		i;
-	(void)args;
 
+	(void)args;
 	tmp = ft_split(config->cmd_parser[0], ' ');
 	i = 1;
 	status = 0;

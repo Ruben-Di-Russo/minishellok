@@ -6,7 +6,7 @@
 /*   By: rdi-russ <rdi-russ@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:21:32 by rdi-russ          #+#    #+#             */
-/*   Updated: 2023/01/16 17:03:23 by rdi-russ         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:27:51 by rdi-russ         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,17 @@ char	*find_dollar(char *line, int time, t_cmd *config)
 	char	**tmp;
 	char	*mat;
 	int		try;
-	int		x;
 
 	tmp = ft_split(line, ' ');
 	try = 0;
-	x = 0;
-	while (tmp[x])
+	config->find_x = 0;
+	while (tmp[config->find_x])
 	{
-		if (ft_strchr(tmp[x], '$'))
-			tmp[x] = ft_strchr(tmp[x], '$');
-		mat = ft_strtrim(tmp[x], "\", \'");
+		if (ft_strchr(tmp[config->find_x], '$'))
+			tmp[config->find_x] = ft_strchr(tmp[config->find_x], '$');
+		mat = ft_strtrim(tmp[config->find_x], "\", \'");
 		config->jump = ft_strlen(mat);
-		if (mat[x] == '$')
+		if (mat[config->find_x] == '$')
 		{
 			if (try == time)
 			{
@@ -37,7 +36,7 @@ char	*find_dollar(char *line, int time, t_cmd *config)
 			}
 			try++;
 		}
-		x++;
+		config->find_x++;
 	}
 	return (NULL);
 }
@@ -67,31 +66,29 @@ char	*find_envp(t_cmd *config, char *tmp)
 
 char	*dollar(t_cmd *config, char *line, int time)
 {
-	char	*tmp;
-	char	*tmp2;
-	int		x;
+	int	x;
 
 	x = 0;
-	tmp2 = find_dollar(line, time, config);
-	if (!tmp2)
+	config->dollar_tmp2 = find_dollar(line, time, config);
+	if (!config->dollar_tmp2)
 		return (NULL);
-	tmp = ft_strtrim(tmp2, "$");
-	free(tmp2);
-	if (tmp[x] == '?')
+	config->dollar_tmp = ft_strtrim(config->dollar_tmp2, "$");
+	free(config->dollar_tmp2);
+	if (config->dollar_tmp[x] == '?')
 	{
 		config->jump = 2;
-		free(tmp);
-		tmp = ft_strdup(config->exit_code);
-		return (tmp);
+		free(config->dollar_tmp);
+		config->dollar_tmp = ft_strdup(config->exit_code);
+		return (config->dollar_tmp);
 	}
-	while (tmp[x] != '\0')
+	while (config->dollar_tmp[x] != '\0')
 	{
-		if (!(tmp[x] >= 65 && tmp[x] <= 90))
+		if (!(config->dollar_tmp[x] >= 65 && config->dollar_tmp[x] <= 90))
 			return (NULL);
 		x++;
 	}
-	tmp = find_envp(config, tmp);
-	if (!tmp)
+	config->dollar_tmp = find_envp(config, config->dollar_tmp);
+	if (!config->dollar_tmp)
 		return (NULL);
-	return (tmp);
+	return (config->dollar_tmp);
 }

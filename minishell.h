@@ -45,6 +45,18 @@ typedef struct s_cmd
 	int		space;
 	int		d;
 	char	*exit_code;
+	char	*dollar_tmp;
+	char	*dollar_tmp2;
+	int		find_x;
+	int		st;
+	int		cmd_i;
+	char	*cmd_tmp;
+	char	**cmd_tmp2;
+	int		n_parser;
+	char	*parser_tmp;
+	int		parser_x;
+	int		parser_y;
+	int		parser_o;
 
 }	t_cmd;
 void	ft_putchar_fd(char c, int fd);
@@ -116,6 +128,13 @@ int		else_execute(t_cmd *config);
 int		ft_isdigit(int c);
 void	ft_checkunset(t_cmd *config, char *str);
 char	**ft_set_envp(char **envp);
-int	ft_ciack(char *tmp);
-
+int		ft_ciack(char *tmp);
+char	*mod_echo(char *line, t_cmd *config, int i);
+void	cmd_if(t_cmd *config, char **tmp2);
+void	null_space(t_cmd *config);
+void	cmd_init(t_cmd *config);
+void	parser_count(t_cmd *config);
+void	count_if(t_cmd *config);
+char	*find_tmp(t_cmd *config);
+void	while_tmp(t_cmd *config);
 #endif
