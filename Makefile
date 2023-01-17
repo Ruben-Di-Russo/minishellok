@@ -2,8 +2,8 @@ NAME = minishell
 
 CC		= gcc
 RM		= rm -f
-CFLAGS = -Wall -Wextra -Werror
-READLINE = 		-L $(HOME)/homebrew/Cellar/readline/8.2.1/lib -I $(HOME)/homebrew/Cellar/readline/8.2.1/include
+CFLAGS 	= -Wall -Wextra -Werror -Wno-unused-command-line-argument
+READLINE = 		-L $(HOME)/homebrew/Cellar/readline/8.2.1/lib -I $(HOME)/homebrew/Cellar/readline/8.2.1/include -lreadline
 
 
 SRC = mini.c \
@@ -36,7 +36,7 @@ SRC = mini.c \
 OBJS = ${SRC:.c=.o}
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(READLINE) -g -c $< -o ${<:.c=.o}
+	$(CC) $(CFLAGS) $(READLINE) -c $< -o ${<:.c=.o}
 
 
 $(NAME): ${OBJS}
