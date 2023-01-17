@@ -6,7 +6,7 @@
 /*   By: rdi-russ <rdi-russ@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 18:17:51 by rdi-russ          #+#    #+#             */
-/*   Updated: 2023/01/16 20:40:12 by rdi-russ         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:43:22 by rdi-russ         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	null_space(t_cmd *config)
 void	cmd_init(t_cmd *config)
 {
 	config->cmd_i = 0;
-	config->cmd_line = malloc(1000);
-	config->cmd_args = malloc(1000);
-	config->cmd_value = malloc(1000);
+	config->cmd_line = malloc(10000);
+	config->cmd_args = malloc(10000);
+	config->cmd_value = malloc(10000);
 }
 
 void	parser_count(t_cmd *config)

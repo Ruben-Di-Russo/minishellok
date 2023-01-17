@@ -57,6 +57,12 @@ typedef struct s_cmd
 	int		parser_x;
 	int		parser_y;
 	int		parser_o;
+	int		echo_i;
+	int		echo_n;
+	int		echo_t;
+	int		echo_space;
+	int		echo_time;
+	char	*echo_tmp;
 
 }	t_cmd;
 void	ft_putchar_fd(char c, int fd);
@@ -137,4 +143,14 @@ void	parser_count(t_cmd *config);
 void	count_if(t_cmd *config);
 char	*find_tmp(t_cmd *config);
 void	while_tmp(t_cmd *config);
+char	*single_while(t_cmd *config, char *line, char *copy);
+void	accrocchio_1(t_cmd *config);
+char	*accrocchio_2(t_cmd *config, char *line, char *tmp);
+char	*accrocchio_3(t_cmd *config, char *line, char *tmp);
+void	accrocchio_4(t_cmd *config);
+char	*dollar_while(t_cmd *config, char *line, char *copy);
+char	*dollar_put(t_cmd *config, int time, char *line);
+char	*dollar_double(t_cmd *config, char *line, char *copy);
+char	*accrocchio_finale(t_cmd *config, char *line);
+
 #endif

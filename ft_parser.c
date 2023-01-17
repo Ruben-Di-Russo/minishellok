@@ -6,7 +6,7 @@
 /*   By: rdi-russ <rdi-russ@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:47:54 by rdi-russ          #+#    #+#             */
-/*   Updated: 2023/01/16 20:36:24 by rdi-russ         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:45:58 by rdi-russ         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	**cmd_parser(t_cmd *config)
 	config->cmd_parser[config->num_cmd] = ft_strtrim(config->parser_tmp, " ");
 	config->cmd_parser[config->num_cmd + 1] = 0;
 	config->num_cmd++;
-	free (config->parser_tmp);
+	free(config->parser_tmp);
 	return (config->cmd_parser);
 }
 

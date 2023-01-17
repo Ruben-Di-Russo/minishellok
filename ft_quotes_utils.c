@@ -6,7 +6,7 @@
 /*   By: rdi-russ <rdi-russ@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:21:32 by rdi-russ          #+#    #+#             */
-/*   Updated: 2023/01/16 17:27:51 by rdi-russ         ###   ########.fr       */
+/*   Updated: 2023/01/17 22:58:49 by rdi-russ         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ char	*find_dollar(char *line, int time, t_cmd *config)
 			tmp[config->find_x] = ft_strchr(tmp[config->find_x], '$');
 		mat = ft_strtrim(tmp[config->find_x], "\", \'");
 		config->jump = ft_strlen(mat);
-		if (mat[config->find_x] == '$')
+		if (mat[0] == '$')
 		{
 			if (try == time)
 			{
-				free_matrix(tmp);
 				return (mat);
 			}
 			try++;
@@ -87,8 +86,8 @@ char	*dollar(t_cmd *config, char *line, int time)
 			return (NULL);
 		x++;
 	}
-	config->dollar_tmp = find_envp(config, config->dollar_tmp);
-	if (!config->dollar_tmp)
+	config->dollar_tmp2 = find_envp(config, config->dollar_tmp);
+	if (!config->dollar_tmp2)
 		return (NULL);
-	return (config->dollar_tmp);
+	return (config->dollar_tmp2);
 }

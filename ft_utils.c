@@ -6,7 +6,7 @@
 /*   By: rdi-russ <rdi-russ@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:58:13 by rdi-russ          #+#    #+#             */
-/*   Updated: 2023/01/16 15:11:22 by rdi-russ         ###   ########.fr       */
+/*   Updated: 2023/01/17 22:58:36 by rdi-russ         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ char	**builtin_str(void)
 
 void	ft_clean(t_cmd *config)
 {
-	printf("start cleaning ... \n");
 	config->red = 0;
 	config->npipe = 0;
 	free(config->line);

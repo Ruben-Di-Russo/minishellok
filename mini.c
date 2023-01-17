@@ -6,7 +6,7 @@
 /*   By: rdi-russ <rdi-russ@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:34:09 by rdi-russ          #+#    #+#             */
-/*   Updated: 2023/01/16 18:39:49 by rdi-russ         ###   ########.fr       */
+/*   Updated: 2023/01/16 20:43:42 by rdi-russ         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	shell_loop(t_cmd *config)
 	status = 2;
 	while (1)
 	{
+		sig_handling_set(1);
 		if (status == 2)
 			config->exit_code = "0";
 		else if (status == 1)
 			config->exit_code = "127";
 		config->line = read_line(config);
-		sig_handling_set(1);
 		cmd_parser(config);
 		cmd_fill(config);
 		status = cmd_prepare(config);
